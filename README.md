@@ -19,7 +19,7 @@ For example, the features used are the following:
 
 I employed four modeling techniques to predict youth marijuana use: (1) a single decision tree classifier, (2) a bagging ensemble of trees, (3) a random forest, and (4) a gradient boosting model. These models were chosen to compare simple interpretable modeling (decision tree) with more complex ensemble methods that often yield higher predictive accuracy. The models are evaluated and compared based on their predictive performance (primarily classification accuracy, confusion matrices, and MSE on a held out test set), and their interpretability (e.g. feature importance). 
 
-The central research question is: How well can we predict whether a given youth has used marijuana, based on parental influence factors, and which parental factors are most predictive?
+The central research question is: How well can it be predicted whether a given youth has used marijuana, based on parental influence factors, and which parental factors are most predictive?
 
 
 ### Theoretical Background
