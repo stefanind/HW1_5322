@@ -34,7 +34,7 @@ Decision trees are appealing for their interpretability--a path from the root to
 **Bagging (Bootstrap Aggregating) with Trees:**
 Bagging is an ensemble technique aimed at reducing the variance of unstable models like decision trees. In bagging, many trees are trained on bootstrapping  subsets of the training data and average their predictions (for classification, by majority vote). Each tree is grown fully (or to a set maximum depth) on a different random subset, which helps smooth out the importances of any one tree. The result is usually improved accuracy and more stable predictions compared to a single tree. However, because all features are considered for each split in classic bagging, the trees in the ensemble can still be correlated if one or a few features are very dominant. Bagging models are usually pruned by the number of trees and the depth of each tree. 
 
-Interpretation of a bagged model is more challenging, since we have many trees instead of one--the neat set of rules is typically lost (unless there is a highly correlated feature with the target). As a result, resorting to measures like variable importance (e.g. averaged reduction in impurity) to understand the decisions the model makes is important.
+Interpretation of a bagged model is more challenging, since there are many trees instead of one--so the set of rules is typically lost (unless there is a highly correlated feature with the target). As a result, resorting to measures like variable importance (e.g. averaged reduction in impurity) to understand the decisions the model makes is important.
 
 
 **Random Forest:**
