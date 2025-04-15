@@ -69,6 +69,20 @@ For the regression models, I created a range mapper that decodes the encoded num
 
 In summary, all model selection (except for a basic decision tree) was done using grid search with cross-validation on the training set. After tuning, we refit each model on the entire training data with the best hyperparameters and evaluated performance on the test set. The evaluation metrics were overall accuracy and confusion matrix for the classification models, and the mean squared error for the regression models. These are used to identify actual marijuana users vs. non-users. I also examined the feature importances for the decision tree models (using Gini-based importance scores) and saved the final pruned decision tree diagram for interpretation.
 
+### Results
 
+*Refer to Code for the discussion on the results*
 
+### Discussion
 
+The performance of the models highlights the challenge of predicting individual behavior like drug use from survey data. The highest accuracy achieved (~86%) came from the random forest model predicting on how many days a year a youth uses marijuana, but this still left a substantial portion of actual users unidentified. In practical terms, a policy maker using this model to find youths at risk would miss roughly 3 out of 4 actual users (rounding down), while flagging some non-users incorrectly. 
+
+A big issue in this experiment is that by optimizing for overall accuracy, the models leaned towards the majority class, which are youth that do not use marijuana. 
+
+This experiment also underlines an ethical dimension: many of these factors (income, single parenthood, etc.) are not easily changeable in the short term and could stigmatize certain groups if used incorrectly. For instance, labeling youths from lower income and single parent households as being more at risk could reinforce negative stereotypes or implicit bias in school or community settings. Hence, ethically, predictive models like this should be used to support and inform, and not to punish. So if a model flags a youth as high-risk, it should ideally notify to introduce supportive interventions, like offering family counseling or after school programs.
+
+Another point of issue is the nature of the variables: many were binary recodes (e.g. always/sometimes vs. seldom/never). Using these binary versions simplifies the model which results in potentially losing information. For example, a parent who “sometimes” checks homework and one who “always” checks homework were lumped together (in PARCHKHW=1). If those nuances matter, a model using the given scale (1=always, 2=sometimes, 3=seldom, 4=never) wouldn't differentiate properly. However, if there are more categories, the model might overfit or find odd splits. 
+
+### Conclusion
+
+In conclusion, this predictive modeling experiment found that we can moderately predict a youth’s likelihood of having tried marijuana using parental and family variables, but with very important limitations. Ensemble tree models (random forest and bagging) performed better than a single decision tree, achieving around 84–86% accuracy, yet all models were far more effective at identifying non-users than users. This can heavily bias the results if used in the real world. But ulimately, the experiment clearly noted that parental factors do matter, but predicting the behavior remains complex. 
